@@ -1,19 +1,13 @@
 package com.example.pr_4;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,13 +31,23 @@ public class BlankFragment2 extends Fragment {
         TextView ticket = view.findViewById(R.id.ticket);
         ticket.setText(String.valueOf(randomNumber));
 
-        Button button = view.findViewById(R.id.button3);
+        Button button = view.findViewById(R.id.buttonToList1);
         button.setOnClickListener(v -> {
             Bundle result = new Bundle();
             result.putString("bundleKey", String.valueOf(randomNumber));
             getParentFragmentManager().setFragmentResult("requestKey", result);
-
-            getParentFragmentManager().beginTransaction().replace(R.id.fragment_container_view, BlankFragment.class, null).commit();
+                        getParentFragmentManager().beginTransaction().replace(R.id.fragment_container_view,
+                                BlankFragment3.class, null)
+                                .commit();
+        });
+        Button button2 = view.findViewById(R.id.buttonToList2);
+        button.setOnClickListener(v -> {
+            Bundle result = new Bundle();
+            result.putString("bundleKey", String.valueOf(randomNumber));
+            getParentFragmentManager().setFragmentResult("requestKey", result);
+                        getParentFragmentManager().beginTransaction().replace(R.id.fragment_container_view,
+                                BlankFragment4.class, null)
+                                .commit();
         });
     }
 }

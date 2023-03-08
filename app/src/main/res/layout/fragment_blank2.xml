@@ -168,8 +168,9 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="414dp"
-            android:layout_height="57dp"
+            android:layout_height="150dp"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -177,12 +178,25 @@
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/buttonToList1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/button_back"
-                android:text="Продолжить" />
+                android:text="@string/_1"/>
+
+            <Button
+                android:id="@+id/buttonToList2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/button_back"
+                android:text="Переход к списку 2"
+                tools:layout_editor_absoluteX="2dp"
+                tools:layout_editor_absoluteY="591dp" />
         </LinearLayout>
+
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
