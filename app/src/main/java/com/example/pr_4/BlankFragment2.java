@@ -41,7 +41,7 @@ public class BlankFragment2 extends Fragment {
                                 .commit();
         });
         Button button2 = view.findViewById(R.id.buttonToList2);
-        button.setOnClickListener(v -> {
+        button2.setOnClickListener(v -> {
             Bundle result = new Bundle();
             result.putString("bundleKey", String.valueOf(randomNumber));
             getParentFragmentManager().setFragmentResult("requestKey", result);

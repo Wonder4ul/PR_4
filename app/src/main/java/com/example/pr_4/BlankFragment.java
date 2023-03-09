@@ -35,15 +35,15 @@ public class BlankFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getParentFragmentManager().setFragmentResultListener("requestKey", this, (key, bundle) -> {
-            String result = bundle.getString("bundleKey");
-            TextView text1 = (TextView) getView().findViewById(R.id.wc1);
-            text1.setText("Вы успешно сформировали читательский билет.\nНомер билета: " + result);
-            TextView text2 = (TextView) getView().findViewById(R.id.wc2);
-            text2.setText("Нажмите клавишу 'Начать', чтобы перейти в библиотеку!");
-            TextView text3 = (TextView) getView().findViewById(R.id.wc3);
-            text3.setText("");
-        });
+//        getParentFragmentManager().setFragmentResultListener("requestKey", this, (key, bundle) -> {
+//            String result = bundle.getString("bundleKey");
+//            TextView text1 = (TextView) getView().findViewById(R.id.wc1);
+//            text1.setText("Вы успешно сформировали читательский билет.\nНомер билета: " + result);
+//            TextView text2 = (TextView) getView().findViewById(R.id.wc2);
+//            text2.setText("Нажмите клавишу 'Начать', чтобы перейти в библиотеку!");
+//            TextView text3 = (TextView) getView().findViewById(R.id.wc3);
+//            text3.setText("");
+//        });
         Button button = view.findViewById(R.id.button);
         button.setOnClickListener(v -> getParentFragmentManager().beginTransaction().replace(R.id.fragment_container_view, BlankFragment2.class, null).commit());
 
