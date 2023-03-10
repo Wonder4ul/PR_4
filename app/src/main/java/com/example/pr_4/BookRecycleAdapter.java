@@ -12,11 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class BookRecycleAdapter  extends RecyclerView.Adapter<BookRecycleAdapter.ViewHolder>{
+    interface OnBookClickListener{
+        void onBookClick(BookInfo book, int position);
+    }
+    private final OnBookClickListener onClickListener;
 
     private final LayoutInflater inflater;
     private final List<BookInfo> books;
 
-    BookRecycleAdapter(Context context, List<BookInfo> books) {
+
+    BookRecycleAdapter(Context context, List<BookInfo> books, OnBookClickListener onClickListener) {
+        this.onClickListener = onClickListener;
         this.books = books;
         this.inflater = LayoutInflater.from(context);
     }
@@ -31,6 +37,13 @@ public class BookRecycleAdapter  extends RecyclerView.Adapter<BookRecycleAdapter
         BookInfo book = books.get(position);
         holder.picView.setImageResource(book.getPictureResource());
         holder.nameView.setText(book.getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                onClickListener.onBookClick(book, position);
+            }
+        });
     }
     @Override
     public int getItemCount() {

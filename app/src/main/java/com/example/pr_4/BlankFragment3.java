@@ -2,6 +2,7 @@ package com.example.pr_4;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,10 +35,8 @@ public class BlankFragment3 extends Fragment {
 
     ArrayList<BookInfo> books = new ArrayList<BookInfo>();
         ListView countriesList;
-        //@Override
         public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
-            //view.setContentView(R.layout.fragment_blank3);
             setInitialData();
 
 
@@ -47,16 +46,25 @@ public class BlankFragment3 extends Fragment {
 
             countriesList.setAdapter(bookAdapter);
 
+            AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+
+                    BookInfo selectedState = (BookInfo) parent.getItemAtPosition(position);
+                    Toast.makeText(getContext(), "Был выбран пункт " + selectedState.getName(),
+                            Toast.LENGTH_SHORT).show();
+                    Log.i("TAG", "Был выбран пункт: " + selectedState.getName());
+                }
+            };
+            countriesList.setOnItemClickListener(itemListener);
+
+
+
         }
     private void setInitialData(){
         for(int i=1; i<=200;i++){
             books.add(new BookInfo (String.valueOf(i), R.drawable.book_svgrepo_com));
         }
-//        books.add(new BookInfo ("Дюна", R.drawable.book_svgrepo_com));
-//        books.add(new BookInfo ("Мессия Дюны", R.drawable.book_svgrepo_com));
-//        books.add(new BookInfo ("Гарри Поттер", R.drawable.book_svgrepo_com));
-//        books.add(new BookInfo ("Человек-Бензопила", R.drawable.book_svgrepo_com));
-//        books.add(new BookInfo ("Властелин колец", R.drawable.book_svgrepo_com));
     }
 
 

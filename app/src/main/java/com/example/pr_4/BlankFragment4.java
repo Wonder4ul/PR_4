@@ -2,6 +2,7 @@ package com.example.pr_4;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,16 @@ public class BlankFragment4 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
             setInitialData();
             RecyclerView recyclerView = view.findViewById(R.id.list);
-            BookRecycleAdapter adapter = new BookRecycleAdapter(getContext(), books);
+            BookRecycleAdapter.OnBookClickListener bookClickListener = new BookRecycleAdapter.OnBookClickListener() {
+                @Override
+                public void onBookClick(BookInfo state, int position) {
+
+                    Toast.makeText(getContext(), "Был выбран пункт " + state.getName(),
+                            Toast.LENGTH_SHORT).show();
+                    Log.i("TAG", "Был выбран пункт: " + state.getName());
+                }
+            };
+            BookRecycleAdapter adapter = new BookRecycleAdapter(getContext(), books, bookClickListener);
             recyclerView.setAdapter(adapter);
         }
 
@@ -49,11 +59,7 @@ public class BlankFragment4 extends Fragment {
         for(int i=1; i<=200;i++){
             books.add(new BookInfo (String.valueOf(i), R.drawable.book_svgrepo_com));
         }
-//        books.add(new BookInfo ("Дюна", R.drawable.book_svgrepo_com));
-//        books.add(new BookInfo ("Мессия Дюны", R.drawable.book_svgrepo_com));
-//        books.add(new BookInfo ("Гарри Поттер", R.drawable.book_svgrepo_com));
-//        books.add(new BookInfo ("Человек-Бензопила", R.drawable.book_svgrepo_com));
-//        books.add(new BookInfo ("Властелин колец", R.drawable.book_svgrepo_com));
+
     }
 
 
