@@ -38,7 +38,6 @@ public class BlankFragment4 extends Fragment {
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setInitialData();
             setInitialData();
             RecyclerView recyclerView = view.findViewById(R.id.list);
             BookRecycleAdapter adapter = new BookRecycleAdapter(getContext(), books);
@@ -47,12 +46,14 @@ public class BlankFragment4 extends Fragment {
 
 
     private void setInitialData(){
-
-        books.add(new BookInfo ("Дюна", R.drawable.book_svgrepo_com));
-        books.add(new BookInfo ("Мессия Дюны", R.drawable.book_svgrepo_com));
-        books.add(new BookInfo ("Гарри Поттер", R.drawable.book_svgrepo_com));
-        books.add(new BookInfo ("Человек-Бензопила", R.drawable.book_svgrepo_com));
-        books.add(new BookInfo ("Властелин колец", R.drawable.book_svgrepo_com));
+        for(int i=1; i<=200;i++){
+            books.add(new BookInfo (String.valueOf(i), R.drawable.book_svgrepo_com));
+        }
+//        books.add(new BookInfo ("Дюна", R.drawable.book_svgrepo_com));
+//        books.add(new BookInfo ("Мессия Дюны", R.drawable.book_svgrepo_com));
+//        books.add(new BookInfo ("Гарри Поттер", R.drawable.book_svgrepo_com));
+//        books.add(new BookInfo ("Человек-Бензопила", R.drawable.book_svgrepo_com));
+//        books.add(new BookInfo ("Властелин колец", R.drawable.book_svgrepo_com));
     }
 
 

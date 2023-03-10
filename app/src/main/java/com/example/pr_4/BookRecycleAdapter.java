@@ -26,19 +26,16 @@ public class BookRecycleAdapter  extends RecyclerView.Adapter<BookRecycleAdapter
         View view = inflater.inflate(R.layout.list_item, parent, false);
         return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(BookRecycleAdapter.ViewHolder holder, int position) {
         BookInfo book = books.get(position);
         holder.picView.setImageResource(book.getPictureResource());
         holder.nameView.setText(book.getName());
     }
-
     @Override
     public int getItemCount() {
         return books.size();
     }
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final ImageView picView;
         final TextView nameView;

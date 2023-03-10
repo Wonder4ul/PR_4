@@ -48,14 +48,16 @@ public class BlankFragment3 extends Fragment {
             countriesList.setAdapter(bookAdapter);
 
         }
-        private void setInitialData(){
-
-            books.add(new BookInfo ("Дюна", R.drawable.book_svgrepo_com));
-            books.add(new BookInfo ("Мессия Дюны", R.drawable.book_svgrepo_com));
-            books.add(new BookInfo ("Гарри Поттер", R.drawable.book_svgrepo_com));
-            books.add(new BookInfo ("Человек-Бензопила", R.drawable.book_svgrepo_com));
-            books.add(new BookInfo ("Властелин колец", R.drawable.book_svgrepo_com));
+    private void setInitialData(){
+        for(int i=1; i<=200;i++){
+            books.add(new BookInfo (String.valueOf(i), R.drawable.book_svgrepo_com));
         }
+//        books.add(new BookInfo ("Дюна", R.drawable.book_svgrepo_com));
+//        books.add(new BookInfo ("Мессия Дюны", R.drawable.book_svgrepo_com));
+//        books.add(new BookInfo ("Гарри Поттер", R.drawable.book_svgrepo_com));
+//        books.add(new BookInfo ("Человек-Бензопила", R.drawable.book_svgrepo_com));
+//        books.add(new BookInfo ("Властелин колец", R.drawable.book_svgrepo_com));
+    }
 
 
 
